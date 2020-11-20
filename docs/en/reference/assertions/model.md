@@ -15,9 +15,10 @@ authority-id:      <authority account id>
 revision:          <int>
 series             <string>
 brand-id           <account id>
+serial-authority   <list<string>> # optional list of serial authorities. Use “generic” to have the snap store generate a serial.
 model              <model id>
-classic            <true|false>
-store              <string>
+classic            <true|false> # optional
+store              <string> # optional
 display-name       <descriptive string>
 architecture       <debian architecture name>
 gadget             <gadget snap name>
@@ -34,6 +35,10 @@ allows the brand to define which release of the platform the device uses.
 “rolling” is the name of the development series that bridges stable series,
 which have names like “16” or “18”. `brand-id` is the account id of the brand, and `model`
 is a string that identifies a set of devices as desired by the brand.
+
+The (optional) `serial-authority` header allows to specify the authority id for the serial assertion.
+In most cases, this is not necessary. It's also possible to specify `generic`, in which case snapd 
+will issue a generic serial from the main Ubuntu snap store.
 
 The (optional) `classic` flag tells us if this is an all-snap system (false) or not (true).
 If not set, `architecture`, `gadget`, and `kernel` are mandatory. If set, `kernel`
