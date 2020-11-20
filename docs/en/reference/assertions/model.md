@@ -36,6 +36,10 @@ allows the brand to define which release of the platform the device uses.
 which have names like “16” or “18”. `brand-id` is the account id of the brand, and `model`
 is a string that identifies a set of devices as desired by the brand.
 
+The (optional) `serial-authority` header allows to specify the authority id for the serial assertion.
+In most cases, this is not necessary. It's also possible to specify `generic`, in which case snapd 
+will issue a generic serial from the main Ubuntu snap store.
+
 The (optional) `classic` flag tells us if this is an all-snap system (false) or not (true).
 If not set, `architecture`, `gadget`, and `kernel` are mandatory. If set, `kernel`
 is forbidden and `architecture` and `gadget` are optional. If not present, an
